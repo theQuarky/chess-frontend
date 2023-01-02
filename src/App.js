@@ -5,7 +5,7 @@ import { v4 as uuidv4 } from "uuid";
 import * as ChessJS from "chess.js";
 import "./App.css";
 
-const socket = io("https://evening-castle-13266.herokuapp.com/");
+const socket = io("https://good-plum-moth-suit.cyclic.app");
 function App() {
   const userId = uuidv4();
   const [side, setSide] = useState("");
