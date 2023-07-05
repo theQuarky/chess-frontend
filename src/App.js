@@ -5,7 +5,7 @@ import { v4 as uuidv4 } from "uuid";
 import * as ChessJS from "chess.js";
 import "./App.css";
 
-const socket = io("https://good-plum-moth-suit.cyclic.app");
+const socket = io("https://chess-backend-ztdm.onrender.com");
 function App() {
   const userId = uuidv4();
   const [side, setSide] = useState("");
