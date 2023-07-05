@@ -5,7 +5,7 @@ import { v4 as uuidv4 } from "uuid";
 import * as ChessJS from "chess.js";
 import "./App.css";
 
-const socket = io("https://chess-backend-ztdm.onrender.com");
+const socket = io("localhost:4000");
 function App() {
   const userId = uuidv4();
   const [side, setSide] = useState("");
@@ -17,6 +17,7 @@ function App() {
   const [game, setGame] = useState(chessInstance);
   const [turn, setTurn] = useState(side === "White");
   const [msg, setMsg] = useState("");
+  const [hasJoined, setHasJoined] = useState(false);
 
   // perform modify function on game state
   function safeGameMutate(modify) {
@@ -25,6 +26,13 @@ function App() {
       modify(update);
       return update;
     });
+
+    if (game.game_over()) {
+      alert(`Game over ${game.turn() === "w" ? "Black" : "White"} wins`);
+      setRoomName("");
+    } else {
+      console.log("Game not over");
+    }
   }
 
   socket.on("receive-move", ({ roomName, userId, move, yourTurn }) => {
@@ -35,8 +43,10 @@ function App() {
   });
 
   socket.on("user-joined", (data) => {
+    setHasJoined(true);
     setMsg(data);
-    setSide("Black");
+    setSide("white");
+    setTurn(true);
   });
 
   function onDrop(sourceSquare, targetSquare) {
@@ -52,11 +62,13 @@ function App() {
 
       // illegal move made
       if (move === null) return false; // valid move made, make computer move
+      console.log(game.toString());
       socket.emit("send-move", {
         roomName: tempRoomName,
         userId,
         move,
         turn,
+        gameState: game.fen(),
       });
       setTurn((state) => !state);
       return true;
@@ -64,20 +76,26 @@ function App() {
   }
 
   useEffect(() => {
-    if (msg !== "") setSide("White");
+    if (msg !== "") setSide("white");
+    else setSide("black");
   }, [msg]);
 
   if (roomName !== "")
     return (
       <>
-        <div>{msg}</div>
-        <Chessboard
-          className="chess-board"
-          position={game.fen()}
-          onPieceDrop={onDrop}
-        />
-        <br />
-        <div>{`Your team is ${side}`}</div>
+        {/* <div>{msg === "" ? "No one has join your room yet!" : msg}</div> */}
+        {hasJoined && (
+          <>
+            <Chessboard
+              className="chess-board"
+              position={game.fen()}
+              onPieceDrop={onDrop}
+              boardOrientation={side === "white" ? "white" : "black"}
+            />
+            <br />
+            <div>{`Your team is ${side}`}</div>{" "}
+          </>
+        )}
       </>
     );
 
@@ -90,6 +108,7 @@ function App() {
       />
       <button
         onClick={() => {
+          setHasJoined(true);
           setRoomName(tempRoomName);
           socket.emit("join-room", { roomName: tempRoomName, userId });
         }}
