@@ -102,14 +102,14 @@ This frontend connects to a backend server for real-time game synchronization:
 ## 📦 Available Scripts
 
 ### `npm start`
-Runs the app in development mode.  
+Runs the app in development mode.
 Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 
 ### `npm test`
 Launches the test runner in interactive watch mode.
 
 ### `npm run build`
-Builds the app for production to the `build` folder.  
+Builds the app for production to the `build` folder.
 The build is minified and optimized for best performance.
 
 ### `npm run eject`
