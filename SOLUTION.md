@@ -11,9 +11,9 @@ This is a **Create React App (CRA)** project that needs to deploy to GitHub Page
 
 The project was **already mostly configured correctly**:
 
-1. **Homepage field**: ✅ Correctly set in `package.json` to `https://theQuarky.github.io/chess-frontend`
+1. **Homepage field**: ✅ correctly set in `package.json` to `https://theQuarky.github.io/chess-frontend`
 2. **Build output**: ✅ React scripts build to `/build` folder (not `/dist`)
-3. **GitHub Actions workflow**: ✅ Already configured to deploy only the `/build` folder
+3. **GitHub Actions workflow**: ✅ already configured to deploy only the `/build` folder
 4. **Workflow configuration**: ✅ Line 42 in `.github/workflows/deploy.yml` specifies `path: ./build`
 
 ### ❌ What Was Missing

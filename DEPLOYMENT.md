@@ -118,10 +118,10 @@ The `-d build` flag tells gh-pages to deploy **only** the `build` directory.
 
 ### Previous Issues (If Any)
 
-If README.md was appearing on the live site before, it was likely because:
-1. The entire repository was being deployed (not just `/build`)
-2. GitHub Pages was set to deploy from a branch that contained all files
-3. Or Jekyll was processing files and creating unwanted pages
+If README.md appears on the live site, it could be because:
+1. The entire repository is being deployed (not just `/build`)
+2. GitHub Pages is set to deploy from a branch that contains all files
+3. Or Jekyll is processing files and creating unwanted pages
 
 ### Current Solution
 
