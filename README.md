@@ -117,7 +117,30 @@ The build is minified and optimized for best performance.
 
 ## 🚀 Deployment
 
-This project is configured for deployment on Firebase Hosting.
+This project can be deployed using either GitHub Pages or Firebase Hosting.
+
+### GitHub Pages (Automatic Deployment)
+
+The project is configured with GitHub Actions for automatic deployment to GitHub Pages.
+
+**Live URL**: [https://theQuarky.github.io/chess-frontend](https://theQuarky.github.io/chess-frontend)
+
+The deployment happens automatically when you push to the `main` or `master` branch.
+
+**Manual Deployment Trigger**:
+- Go to the Actions tab in your GitHub repository
+- Select the "Build and Deploy to GitHub Pages" workflow
+- Click "Run workflow"
+
+**Setup Requirements** (One-time setup):
+1. Go to your repository Settings → Pages
+2. Under "Build and deployment", set:
+   - **Source**: GitHub Actions
+3. The workflow will automatically deploy on the next push
+
+### Firebase Hosting (Manual Deployment)
+
+This project is also configured for deployment on Firebase Hosting.
 
 1. **Install Firebase CLI**
    ```bash
