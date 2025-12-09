@@ -1,70 +1,175 @@
-# Getting Started with Create React App
+# ♟️ Chess Frontend
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+A real-time multiplayer chess application built with React that allows players to compete in live chess matches. The application features an interactive chessboard with real-time synchronization between players using WebSocket technology.
 
-## Available Scripts
+## ✨ Features
 
-In the project directory, you can run:
+- 🎮 **Real-time Multiplayer** - Play chess with opponents in real-time
+- 🔄 **Live Synchronization** - Moves are instantly synchronized between players
+- 🎨 **Interactive Chessboard** - Drag-and-drop piece movement
+- 🎲 **Room-based Gameplay** - Create or join game rooms
+- ♟️ **Valid Move Detection** - Only legal chess moves are allowed
+- 📱 **Responsive Design** - Works on desktop and mobile devices
+- ⚫⚪ **Two-player Support** - Automatic white/black assignment
+- 🔔 **Game Over Detection** - Automatic winner detection
+
+## 🚀 Tech Stack
+
+- **Frontend Framework**: React 18
+- **Chess Logic**: chess.js
+- **Chessboard UI**: react-chessboard
+- **Real-time Communication**: Socket.IO Client
+- **Styling**: CSS
+- **Build Tool**: Create React App
+- **Deployment**: Firebase Hosting
+
+## 📋 Prerequisites
+
+Before you begin, ensure you have the following installed:
+- Node.js (v14 or higher)
+- npm (v6 or higher)
+- Git
+
+## 🛠️ Installation
+
+1. **Clone the repository**
+   ```bash
+   git clone https://github.com/theQuarky/chess-frontend.git
+   cd chess-frontend
+   ```
+
+2. **Install dependencies**
+   ```bash
+   npm install
+   ```
+
+3. **Start the development server**
+   ```bash
+   npm start
+   ```
+
+4. **Open your browser**
+   - Navigate to [http://localhost:3000](http://localhost:3000)
+
+## 🎯 Usage
+
+1. **Create/Join a Room**
+   - Enter a room name in the input field
+   - Click the "Join" button
+   - Share the room name with your opponent
+
+2. **Wait for Opponent**
+   - The first player will be assigned the white pieces
+   - The second player to join will get the black pieces
+
+3. **Play Chess**
+   - Drag and drop pieces to make moves
+   - Only valid moves according to chess rules are allowed
+   - Wait for your turn to make a move
+
+4. **Game Over**
+   - The game automatically detects checkmate and stalemate
+   - A winner will be announced when the game ends
+
+## 📁 Project Structure
+
+```
+chess-frontend/
+├── public/              # Static files
+│   ├── index.html      # HTML template
+│   └── ...
+├── src/
+│   ├── components/     # React components
+│   ├── App.js          # Main application component
+│   ├── App.css         # Application styles
+│   ├── index.js        # Application entry point
+│   └── ...
+├── firebase.json       # Firebase hosting configuration
+├── .firebaserc         # Firebase project configuration
+├── package.json        # Project dependencies
+└── README.md          # Project documentation
+```
+
+## 🔌 Backend Connection
+
+This frontend connects to a backend server for real-time game synchronization:
+- **Backend URL**: `https://chess-backend-ztdm.onrender.com`
+- The backend handles room management and move synchronization
+- Built with Socket.IO for WebSocket communication
+
+**Note**: Ensure the backend server is running for the application to work properly.
+
+## 📦 Available Scripts
 
 ### `npm start`
-
-Runs the app in the development mode.\
+Runs the app in development mode.
 Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
-
 ### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Launches the test runner in interactive watch mode.
 
 ### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+Builds the app for production to the `build` folder.
+The build is minified and optimized for best performance.
 
 ### `npm run eject`
+**Note: This is a one-way operation. Once you eject, you can't go back!**
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+## 🚀 Deployment
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+This project is configured for deployment on Firebase Hosting.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+1. **Install Firebase CLI**
+   ```bash
+   npm install -g firebase-tools
+   ```
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+2. **Login to Firebase**
+   ```bash
+   firebase login
+   ```
 
-## Learn More
+3. **Build the project**
+   ```bash
+   npm run build
+   ```
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+4. **Deploy to Firebase**
+   ```bash
+   firebase deploy
+   ```
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+## 🤝 Contributing
 
-### Code Splitting
+Contributions are welcome! Here's how you can help:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+1. Fork the repository
+2. Create a new branch (`git checkout -b feature/amazing-feature`)
+3. Make your changes
+4. Commit your changes (`git commit -m 'Add some amazing feature'`)
+5. Push to the branch (`git push origin feature/amazing-feature`)
+6. Open a Pull Request
 
-### Analyzing the Bundle Size
+## 📝 License
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+This project is open source and available under the [MIT License](LICENSE).
 
-### Making a Progressive Web App
+## 👤 Author
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+**theQuarky**
+- GitHub: [@theQuarky](https://github.com/theQuarky)
 
-### Advanced Configuration
+## 🙏 Acknowledgments
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+- Built with [Create React App](https://github.com/facebook/create-react-app)
+- Chess logic powered by [chess.js](https://github.com/jhlywa/chess.js)
+- UI components from [react-chessboard](https://github.com/Clariity/react-chessboard)
+- Real-time communication via [Socket.IO](https://socket.io/)
 
-### Deployment
+## 📞 Support
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+If you have any questions or run into issues, please open an issue on GitHub.
 
-### `npm run build` fails to minify
+---
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Made with ❤️ by theQuarky
